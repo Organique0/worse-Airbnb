@@ -1,7 +1,31 @@
+import getCurrentUser from "./actions/getCurrentUser";
+import getListings from "./actions/getListings";
+import Container from "./components/Container";
+import EmptyState from "./components/EmptyState";
+import ListingCard from "./components/listings/ListingCard";
 
 
-export default function Home() {
+export default async function Home() {
+  const listings = await getListings();
+  const currentUser = await getCurrentUser();
+
+  if (listings.length == 0) {
+    return (
+      <EmptyState showReset />
+    )
+  }
+
   return (
-    <div className="text-rose-500 text-2xl">hello world</div>
+    <Container>
+      <div className="pt-25 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
+        <div>
+          {listings.map((lst: any) => {
+            return (
+              <ListingCard key={lst.id} data={lst} currentUser={currentUser} />
+            )
+          })}
+        </div>
+      </div>
+    </Container>
   )
 }
