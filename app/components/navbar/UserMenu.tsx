@@ -9,6 +9,7 @@ import useLoginModal from "@/app/hooks/useLoginModal";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
 import useRentModal from "@/app/hooks/useRentModal";
+import { useRouter } from "next/navigation";
 interface UserMenuProps {
     currentUser?: SafeUser | null;
 }
@@ -19,6 +20,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const rentModal = useRentModal();
+    const router = useRouter();
 
     const toggleOpen = useCallback(() => {
         setIsOpen((v) => !v)
@@ -53,11 +55,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                             {currentUser ?
                                 (
                                     <>
-                                        <MenuItem onClick={loginModal.onOpen} label="My trips" />
-                                        <MenuItem onClick={registerModal.onOpen} label="My favourites" />
-                                        <MenuItem onClick={registerModal.onOpen} label="My favourites" />
-                                        <MenuItem onClick={registerModal.onOpen} label="My reservation" />
-                                        <MenuItem onClick={registerModal.onOpen} label="My properties" />
+                                        <MenuItem onClick={() => router.push("/trips")} label="My trips" />
+                                        <MenuItem onClick={() => router.push('/favorites')} label="My favourites" />
+                                        <MenuItem onClick={() => router.push("/reservations")} label="My reservation" />
+                                        <MenuItem onClick={() => router.push('/properties')} label="My properties" />
                                         <MenuItem onClick={rentModal.onOpen} label="Airbnb my home" />
                                         <hr />
                                         <MenuItem onClick={signOut} label="Logout" />
