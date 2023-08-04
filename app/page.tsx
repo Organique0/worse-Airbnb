@@ -32,3 +32,4 @@ const Home = async ({ searchParams }: HomeProps) => {
     </Container>
   )
 }
+export default Home;
