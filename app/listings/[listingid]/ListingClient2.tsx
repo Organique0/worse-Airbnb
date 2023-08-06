@@ -27,7 +27,7 @@ interface ListingClientProps {
 }
 
 
-const ListingClient: React.FC<ListingClientProps> = ({ listing, currentUser, reservations = [] }) => {
+const ListingClient2: React.FC<ListingClientProps> = ({ listing, currentUser, reservations = [] }) => {
 
     const loginModal = useLoginModal();
     const router = useRouter();
@@ -116,4 +116,4 @@ const ListingClient: React.FC<ListingClientProps> = ({ listing, currentUser, res
     );
 }
 
-export default ListingClient;
+export default ListingClient2;

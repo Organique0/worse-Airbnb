@@ -1,11 +1,11 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import getListingById from "@/app/actions/getListingById";
 import EmptyState from "@/app/components/EmptyState";
-import ListingClient from "./ListingClient";
+import ListingClient2 from "./ListingClient2";
 import getReservations from "@/app/actions/getReservations";
 
 interface IParams {
-    listingId?: string;
+    listingid?: string;
 }
 export const dynamic = "force-dynamic";
 const ListingPage = async ({ params }: { params: IParams }) => {
@@ -19,7 +19,7 @@ const ListingPage = async ({ params }: { params: IParams }) => {
 
     return (
         <div>
-            <ListingClient listing={listing} currentUser={currentUser} reservations={reservations} />
+            <ListingClient2 listing={listing} currentUser={currentUser} reservations={reservations} />
         </div>
     );
 }
