@@ -58,7 +58,6 @@ const LoginModal = () => {
         <div className="flex flex-col gap-4">
             <hr />
             <Button outline label="continue with Google" icon={FcGoogle} onClick={() => signIn('google')} />
-            <Button outline label="continue with Github" icon={AiFillGithub} onClick={() => signIn('github')} />
             <div className="text-neutral-500 text-center font-light">
                 <div className="flex flex-row items-center gap-2 justify-center">
                     <div>
