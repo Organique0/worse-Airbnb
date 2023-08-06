@@ -7,7 +7,7 @@ import getReservations from "@/app/actions/getReservations";
 interface IParams {
     listingId?: string;
 }
-
+export const dynamic = "force-dynamic";
 const ListingPage = async ({ params }: { params: IParams }) => {
     const listing = await getListingById(params);
     const currentUser = await getCurrentUser();
