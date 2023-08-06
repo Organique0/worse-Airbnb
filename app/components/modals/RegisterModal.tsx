@@ -33,7 +33,11 @@ const RegisterModal = () => {
                 loginModal.onOpen();
                 registerModal.onClose();
             })
-            .catch((error) => { toast.error("Something went wrong") })
+            .catch((error) => {
+                toast.error(error.response.data.error);
+                loginModal.onOpen();
+                registerModal.onClose();
+            })
             .finally(() => setLoading(false));
     }
 
