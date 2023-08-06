@@ -9,7 +9,6 @@ interface IParams {
 }
 export const dynamic = "force-dynamic";
 const ListingPage = async ({ params }: { params: IParams }) => {
-    console.log(params);
     const listing = await getListingById(params);
     const currentUser = await getCurrentUser();
     const reservations = await getReservations(params);
